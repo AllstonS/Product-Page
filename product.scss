@@ -1,0 +1,24 @@
+body:{
+  width:90%;
+  margin:0;
+  padding:0;
+}
+section{
+  border:2px solid black;
+  background: white;
+  list-style-type:none;
+}
+a{
+  position:center;
+}
+
+.brand, .sizes, .price{
+  font-size:20px;
+  text-align:center;
+  font-family:Arial, sans-serif;
+}
+p{
+  font-size:15px;
+  text-align:center;
+  font-family:Arial, sans-serif;
+}
