@@ -1,29 +1,77 @@
 <!DOCTYPE html>
 <html>
-<!DOCTYPE html>
 <html lang="en">
 <head>
   <link type="text/css" rel="stylesheet" href="product.css"/>
   <title>Products</title>
 </head>
 <body>
+  <header>
+    <h1>Shwanky Shoes</h1>
+  </header>
   <section>
-      <a href="rel"></a>
-      <div class="brand"></div>
-      <p class="description"></p>
-      <div class="sizes"></div>
-      <div class="price"></div>
   </section>
+  <aside>
+  <div class="form">
+    <form action="">
+      <h4>  <label for=brand>Brand</label>
+        <input type="text" name="brand" placeholder="Brand">
+      </h4>
+      <h4>  <label for=size>Size</label>
+        <input type="text" name="size" placeholder="Size">
+      </h4>
+      <p>
+        <label for="content">Product Content</label>
+        <textarea id="content" cols="30" rows="10" name="content"></textarea>
+      </p>
+      <p>
+        <label for="author">Author</label>
+        <input type="text" name="author" placeholder="Author">
+      </p>
+      <p>
+        <button type="submit">Submit Post</button>
+      </p>
+
+    </form>
+  </div>
+  <!--<div class=form>
+    <ul>
+      <li><a href="">blog title</a></li>
+    </ul>
+  </div>
+</aside>
+
+<footer>
+  <nav>
+    <ul>
+      <li><a href="">nav link</a></li>
+      <li><a href="">nav link</a></li>
+      <li><a href="">nav link</a></li>
+    </ul>
+  </nav>
+
+</footer>
+-->
+
+
+
+
+
+
+
+
+
 
 
   <script src="bower_components/jquery/dist/jquery.js"></script>
+  <script src="bower_components/underscore/underscore.js"></script>
+
 
   <!--data to use-->
 
   <script src="data.js"></script>
 
-  <script src="js/templates.js"></script>
-  
+  <script src="templates.js"></script>
   <script src="main.js"></script>
   </body>
 </html>

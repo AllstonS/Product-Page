@@ -1,91 +1,74 @@
 
-// function init() {
-//   initStyling();
-//   initEvents();
-// }
-//
-// function initStyling() {
-//   console.log("called init styling");
-//   addAllPosts(products);
-// }
-//
-// function initEvents() {
-//
-//   $("body").on("click", function () {
-//     alert("my event is bound.");
-//   })
-//   console.log("called init events");
-//
-// }
-//
-// function addProducts(post, index, array) {
-//   $("section").append(
-//     "<article>" +
-//     "<h3>" + post.title + "</h3>"
-//     + "<p>" + post.content + "</p>"
-//     + "<blockquote>" + post.author + "</blockquote>"
-//     + "</article>"
-//   );
-// }
-//
-// function addAllPosts(postsData) {
-//   postsData.forEach(addPost);
-//
-//   // postsData.forEach(function (item, index, array) {
-//   //   $("section").append(
-//   //     "<article>" +
-//   //     "<h3>" + item.title + "</h3>"
-//   //     + "<p>" + item.content + "</p>"
-//   //     + "<blockquote>" + item.author + "</blockquote>"
-//   //     + "</article>"
-//   //   );
-//   // });
-// }
-
-
-
-
-
 var productPage = {
 
   init: function () {
     productPage.initStyling();
     productPage.initEvents();
-
-  },
-  initStyling: function () {
-    console.log("called init styling");
     productPage.addAllProducts(products);
   },
-  initEvents: function () {
-    console.log("called init events");
+
+  initStyling: function () {
+    //productPage.addAllProcucts(products)
+    productPage.renderAllProducts(products);
   },
 
+  initEvents: function () {
 
-  addProduct: function (product, index, array) {
+      $('.form').on('submit', function(event){
+      event.preventDefault();
+      productPage.createProduct();
+    });
 
-      $("section").append(
-        '<section>'+
-        '<a href="rel"><img src="'+product.image+'"></a>' +
-        '<div class="brand"> "'+product.brand+'"</div>' +
-        '<p class="description">"'+product.description+'"</p>' +
-        '<div class="sizes">"'+product.sizes+'"</div>' +
-        '<div class="price"> "'+product.price+'"</div>' +
-        '</section>'
-      );
+    $('section').on('click', '.deleteProduct', productPage.deleteProduct);
 
-      var compiled = _.template(templates.product);
-      $('section').append(compiled(product));
+  },
 
-    },
+  createProduct: function(){
+    var newProduct = {
+      image: $('.form input[name="image"]').val(),
+      brand: $('.form input[name="brand"]').val(),
+      description: $('.form input [name="description"]').val(),
+      sizes: $('.form input[name="sizes"]').val(),
+      price: $('.form input[price="price"]').val(),
 
-    // partial application
+    };
+
+    products.push(newProduct);
+    productsPage.renderProduct(newProduct, products.indexOf(newProduct));
+  },
+
+  //updateProduct: function{
+
+    //add code here
 
 
-addAllProducts: function (productData) {
-  productData.forEach(productPage.addProduct);
 
-},
+
+  deleteProduct: function(event){
+    var productIndex = $(this).closest('article').data('index');
+
+    console.log(productIndex);
+    products.splice(productIndex, 1);
+
+    $(this).closest('article').remove();
+  },
+
+  //replaces 'addProcut function' from previous notes, just changed name
+  renderProduct: function (product, index, array){
+    product.idx = index;
+    var compiled = _.template(templates.product);
+
+    console.log(compiled(product));
+    $("section").prepend(compiled(product));
+
+  },
+
+  renderAllProducts: function (allProducts){
+    //producsData.forEach(productsPage.renderProducts);
+    _.each(allProducts, productPage.renderProduct);
+  }
+
+};
 
 $(document).ready(function () {
   // code goes here for page.
