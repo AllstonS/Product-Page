@@ -4,11 +4,9 @@ var productPage = {
   init: function () {
     productPage.initStyling();
     productPage.initEvents();
-    productPage.addAllProducts(products);
   },
 
   initStyling: function () {
-    //productPage.addAllProcucts(products)
     productPage.renderAllProducts(products);
   },
 
@@ -25,7 +23,7 @@ var productPage = {
 
   createProduct: function(){
     var newProduct = {
-      image: $('.form input[name="image"]').val(),
+    //  image: $('.form input[name="image"]').val(),
       brand: $('.form input[name="brand"]').val(),
       description: $('.form input [name="description"]').val(),
       sizes: $('.form input[name="sizes"]').val(),
@@ -37,14 +35,35 @@ var productPage = {
     productsPage.renderProduct(newProduct, products.indexOf(newProduct));
   },
 
-  //updateProduct: function{
+  //  var thisIndex = $(this).closest('article').data('index');
 
-    //add code here
+  //  var updateProduct ={
+    //   brand:$(this).closest('article').find('input.editBrand').val(),
+    //   description:$(this).closest('article').find('input.editDescription').val(),
+    //   sizes:$(this).closest('article').find('input.editSizes').val(),
+    //   price:$(this).closest('article').find('input.editPrice').val(),
+    //
+    // }
 
 
+ updateProduct: function(){
+    //var newImage = prompt("new image", productImage);
+    var newBrand = prompt("new brand", productBrand);
+    var newDescription = prompt("new description", productDescription);
+    var newSizes = prompt("newSizes", productSizes);
+    var newPrice = prompt("newPrice", productPrice);
 
+    var editProduct={
+      //image: newImage;
+      brand: newBrand,
+      description: newDescription,
+      size: newSizes,
+      price: newPrice
+  };
+},
 
   deleteProduct: function(event){
+
     var productIndex = $(this).closest('article').data('index');
 
     console.log(productIndex);
@@ -53,7 +72,7 @@ var productPage = {
     $(this).closest('article').remove();
   },
 
-  //replaces 'addProcut function' from previous notes, just changed name
+  //replaces 'addProdcut function' from previous notes, just changed name
   renderProduct: function (product, index, array){
     product.idx = index;
     var compiled = _.template(templates.product);
@@ -70,8 +89,8 @@ var productPage = {
 
 };
 
-$(document).ready(function () {
+  $(document).ready(function () {
   // code goes here for page.
   productPage.init();
-  // init();
+
 });

@@ -2,8 +2,18 @@
 <html>
 <html lang="en">
 <head>
-  <link type="text/css" rel="stylesheet" href="product.css"/>
+  <meta charset="UTF-8">
   <title>Products</title>
+  <link type="text/css" rel="stylesheet" href="product.css" />
+  <script id="productTmpl" type="html/template"></script>
+  <article data-index='<%= idx %>'>
+  <img src=<%= image %> />
+  <div class="brand"><%= brand %></div>
+  <p class="description"><%= description %></p>
+  <div class="sizes"><%= sizes %> </div>
+  <div class="price"><%= price %></div>
+  </article>
+
 </head>
 <body>
   <header>
@@ -52,10 +62,6 @@
 
 </footer>
 -->
-
-
-
-
 
 
 
